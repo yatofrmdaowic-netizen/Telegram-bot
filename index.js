@@ -8,6 +8,9 @@ import image from "./lib/image.js";
 import economy from "./lib/economy.js";
 import admin from "./lib/admin.js";
 import owner from "./lib/owner.js";
+import ping from "./lib/ping.js";
+import runtime from "./lib/runtime.js";
+import about from "./lib/about.js";
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -22,6 +25,9 @@ image(bot);
 economy(bot);
 admin(bot);
 owner(bot);
+ping(bot);
+runtime(bot);
+about(bot);
 
 /* ===== ERROR HANDLER ===== */
 bot.catch(err => {
