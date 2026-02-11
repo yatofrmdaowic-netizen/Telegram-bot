@@ -15,6 +15,7 @@ import about from "./lib/about.js";
 import system from "./lib/system.js";
 import anti from "./lib/antilink_spam.js";
 import stalker from "./lib/stalker.js";
+import instagramPublic from "./lib/instagramPublic.js"; 
 
 /* ===== VALIDATE TOKEN ===== */
 if (!process.env.BOT_TOKEN) {
