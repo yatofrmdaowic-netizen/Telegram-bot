@@ -43,7 +43,8 @@ bot.command("menu", menu.menu);
   about,
   system,
   anti,
-  stalker
+  stalker,
+  instagramPublic
 ].forEach(module => {
   try {
     module(bot);
