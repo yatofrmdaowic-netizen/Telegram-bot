@@ -49,15 +49,15 @@ const modules = [
   instagramPublic
 ];
 
-/* ===== LOAD MODULES SAFELY ===== */
-modules.forEach((mod, i) => {
+/* ===== LOAD MODULES ===== */
+for (const mod of modules) {
   try {
     mod(bot);
-    console.log(`✅ Loaded module ${i + 1}/${modules.length}`);
+    console.log(`✅ Loaded module: ${mod.name}`);
   } catch (err) {
-    console.error(`❌ Failed loading module:`, err.message);
+    console.error(`❌ Failed loading module: ${mod.name}`, err.message);
   }
-});
+}
 
 /* ===== GLOBAL ERROR HANDLER ===== */
 bot.catch(async (err, ctx) => {
@@ -73,14 +73,12 @@ bot.catch(async (err, ctx) => {
 async function startBot() {
   try {
     const info = await bot.telegram.getMe();
-
     console.log("=================================");
     console.log("🤖 SuperBot Starting...");
     console.log(`👤 Name: ${info.first_name}`);
     console.log(`🔗 Username: @${info.username}`);
     console.log("📡 Mode: Polling");
     console.log("=================================");
-
     await bot.launch();
     console.log("✅ Bot fully running");
   } catch (err) {
@@ -99,56 +97,5 @@ process.once("SIGINT", () => {
 
 process.once("SIGTERM", () => {
   console.log("🛑 SIGTERM received. Stopping...");
-  bot.stop("SIGTERM");
-});
-  image,
-  economy,
-  admin,
-  owner,
-  ping,
-  runtime,
-  about,
-  system,
-  anti,
-  stalker,
-  instagramPublic
-].forEach(module => {
-  try {
-    module(bot);
-    console.log(`✅ Loaded module: ${module.name}`);
-  } catch (err) {
-    console.error(`❌ Failed loading module: ${module.name}`, err);
-  }
-});
-
-/* ===== GLOBAL ERROR HANDLER ===== */
-bot.catch((err, ctx) => {
-  console.error("🚨 BOT ERROR:", err);
-  if (ctx?.reply) {
-    ctx.reply("⚠️ Unexpected error occurred.");
-  }
-});
-
-/* ===== START BOT ===== */
-async function startBot() {
-  try {
-    await bot.launch();
-    console.log("🤖 Bot fully running in polling mode");
-  } catch (err) {
-    console.error("❌ Failed to launch bot:", err);
-    process.exit(1);
-  }
-}
-
-startBot();
-
-/* ===== GRACEFUL SHUTDOWN ===== */
-process.once("SIGINT", () => {
-  console.log("🛑 Bot shutting down (SIGINT)");
-  bot.stop("SIGINT");
-});
-
-process.once("SIGTERM", () => {
-  console.log("🛑 Bot shutting down (SIGTERM)");
   bot.stop("SIGTERM");
 });
