@@ -15,11 +15,12 @@ import about from "./lib/about.js";
 import system from "./lib/system.js";
 import anti from "./lib/antilink_spam.js";
 import stalker from "./lib/stalker.js";
-import instagramPublic from "./lib/instagramPublic.js"; 
+import autoReact from "./lib/autoreact.js";
+import instagramPublic from "./lib/instagramPublic.js";
 
 /* ===== VALIDATE TOKEN ===== */
 if (!process.env.BOT_TOKEN) {
-  console.error("❌ BOT_TOKEN is missing in .env");
+  console.error("❌ BOT_TOKEN missing in .env");
   process.exit(1);
 }
 
@@ -30,10 +31,76 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(menu.start);
 bot.command("menu", menu.menu);
 
-/* ===== LOAD MODULES ===== */
-[
+/* ===== MODULE LIST ===== */
+const modules = [
   ai,
   downloads,
+  image,
+  economy,
+  admin,
+  owner,
+  ping,
+  runtime,
+  about,
+  system,
+  anti,
+  stalker,
+  autoReact,
+  instagramPublic
+];
+
+/* ===== LOAD MODULES SAFELY ===== */
+modules.forEach((mod, i) => {
+  try {
+    mod(bot);
+    console.log(`✅ Loaded module ${i + 1}/${modules.length}`);
+  } catch (err) {
+    console.error(`❌ Failed loading module:`, err.message);
+  }
+});
+
+/* ===== GLOBAL ERROR HANDLER ===== */
+bot.catch(async (err, ctx) => {
+  console.error("🚨 BOT ERROR:", err.message);
+  try {
+    if (ctx?.reply) {
+      await ctx.reply("⚠️ Unexpected error occurred.");
+    }
+  } catch {}
+});
+
+/* ===== START BOT ===== */
+async function startBot() {
+  try {
+    const info = await bot.telegram.getMe();
+
+    console.log("=================================");
+    console.log("🤖 SuperBot Starting...");
+    console.log(`👤 Name: ${info.first_name}`);
+    console.log(`🔗 Username: @${info.username}`);
+    console.log("📡 Mode: Polling");
+    console.log("=================================");
+
+    await bot.launch();
+    console.log("✅ Bot fully running");
+  } catch (err) {
+    console.error("❌ Launch failed:", err.message);
+    process.exit(1);
+  }
+}
+
+startBot();
+
+/* ===== GRACEFUL SHUTDOWN ===== */
+process.once("SIGINT", () => {
+  console.log("🛑 SIGINT received. Stopping...");
+  bot.stop("SIGINT");
+});
+
+process.once("SIGTERM", () => {
+  console.log("🛑 SIGTERM received. Stopping...");
+  bot.stop("SIGTERM");
+});
   image,
   economy,
   admin,
