@@ -1,11 +1,11 @@
-// lib/gpt.js
+// lib/ai.js
 import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-export default function gpt(bot) {
+export default function ai(bot) {
 
   /* ================= GPT CHAT ================= */
   bot.command("gpt", async (ctx) => {
@@ -24,10 +24,7 @@ export default function gpt(bot) {
       const reply = res.choices?.[0]?.message?.content;
       if (!reply) return ctx.reply("❌ No response from AI");
 
-      await ctx.reply(reply, { parse_mode: "Markdown" }).catch(() =>
-        ctx.reply(reply)
-      );
-
+      await ctx.reply(reply);
     } catch (err) {
       console.error("GPT ERROR:", err);
       ctx.reply("❌ AI error, try again later");
