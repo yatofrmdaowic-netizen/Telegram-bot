@@ -4,21 +4,16 @@
   "version": "2.1.0",
   "description": "Advanced Telegram Multi Feature Bot",
   "main": "index.js",
-
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
     "prod": "NODE_ENV=production node index.js",
-    "docker": "docker-compose up --build",
     "clean": "rm -rf node_modules package-lock.json"
   },
-
   "engines": {
     "node": ">=18.0.0"
   },
-
   "engineStrict": true,
-
   "dependencies": {
     "telegraf": "^4.16.3",
     "axios": "^1.6.7",
