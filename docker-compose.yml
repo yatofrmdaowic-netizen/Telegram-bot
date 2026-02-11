@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  superbot:
+    container_name: telegram-superbot
+    build: .
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: node index.js
