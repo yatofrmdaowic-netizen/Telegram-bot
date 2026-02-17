@@ -28,31 +28,39 @@ if (!process.env.BOT_TOKEN) {
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 /* ===== BASIC COMMANDS ===== */
+if (typeof menu?.start !== "function" || typeof menu?.menu !== "function") {
+  console.error("❌ menu module must export { start, menu } handlers");
+  process.exit(1);
+}
+
 bot.start(menu.start);
 bot.command("menu", menu.menu);
 
 /* ===== MODULE LIST ===== */
 const modules = [
-  ai,
-  downloads,
-  image,
-  economy,
-  admin,
-  owner,
-  ping,
-  runtime,
-  about,
-  system,
-  anti,
-  stalker,
-  autoReact,
-  instagramPublic
+  { name: "ai", setup: ai },
+  { name: "downloads", setup: downloads },
+  { name: "image", setup: image },
+  { name: "economy", setup: economy },
+  { name: "admin", setup: admin },
+  { name: "owner", setup: owner },
+  { name: "ping", setup: ping },
+  { name: "runtime", setup: runtime },
+  { name: "about", setup: about },
+  { name: "system", setup: system },
+  { name: "anti", setup: anti },
+  { name: "stalker", setup: stalker },
+  { name: "autoReact", setup: autoReact },
+  { name: "instagramPublic", setup: instagramPublic }
 ];
 
 /* ===== LOAD MODULES ===== */
 for (const mod of modules) {
   try {
-    mod(bot);
+    if (typeof mod.setup !== "function") {
+      throw new Error("Module setup is not a function");
+    }
+    mod.setup(bot);
     console.log(`✅ Loaded module: ${mod.name}`);
   } catch (err) {
     console.error(`❌ Failed loading module: ${mod.name}`, err.message);
@@ -69,6 +77,14 @@ bot.catch(async (err, ctx) => {
   } catch {}
 });
 
+process.on("unhandledRejection", (reason) => {
+  console.error("🚨 UNHANDLED REJECTION:", reason);
+});
+
+process.on("uncaughtException", (error) => {
+  console.error("🚨 UNCAUGHT EXCEPTION:", error);
+});
+
 /* ===== START BOT ===== */
 async function startBot() {
   try {
@@ -79,6 +95,7 @@ async function startBot() {
     console.log(`🔗 Username: @${info.username}`);
     console.log("📡 Mode: Polling");
     console.log("=================================");
+
     await bot.launch();
     console.log("✅ Bot fully running");
   } catch (err) {
