@@ -51,6 +51,15 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 
 ---
 
+
+### 💎 Premium System
+- `/premium` – View premium plans and benefits
+- `/buypremium <7|30>` – Buy premium using economy coins
+- `/premiumstatus` – Check your premium status
+- `/premiumdaily` – Claim premium-only bonus every 12h
+
+---
+
 ### 👮 Admin Commands
 - `/antilink on|off`
 - `/kick` *(reply to user)*
