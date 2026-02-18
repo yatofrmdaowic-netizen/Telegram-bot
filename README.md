@@ -91,11 +91,13 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 - `/removepremium <user_id>`
 - `/premiumlist`
 - `/addcoins <user_id> <amount>`
+- `/removecoins <user_id> <amount>`
 - `/setbalance <user_id> <wallet> [bank]`
+- `/resetuser <user_id>`
 - `/userinfo <user_id>`
+- `/topusers [count]`
 - `/ownerstats`
 
 ---
 
 ## 📁 Project Structure
-
