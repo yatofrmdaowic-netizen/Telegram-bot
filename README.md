@@ -37,10 +37,12 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 ---
 
 ### 💰 Economy System
-- `/balance`
-- `/deposit <amount>`
-- `/withdraw <amount>`
+- `/balance` (also `/bal`)
+- `/deposit <amount|all>`
+- `/withdraw <amount|all>`
 - `/beg`
+- `/work` *(new: 15m cooldown)*
+- `/crime` *(new: risky reward command)*
 - `/give <amount>` *(reply)*
 - `/rob` *(reply)*
 - `/coinflip <amount> <h/t>`
@@ -48,6 +50,16 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 - `/slots <amount>`
 - `/aviator <amount>`
 - `/leaderboard`
+
+---
+
+
+### 💎 Premium System
+- `/premium` – View premium plans and benefits
+- `/buypremium <7|30>` – Buy premium using economy coins
+- `/premiumstatus` – Check your premium status
+- `/premiumdaily` – Claim premium-only bonus every 12h
+- Premium boosts now also improve `/work` rewards and `/crime` success rate
 
 ---
 
@@ -64,6 +76,13 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 - `/restart`
 - `/eval <code>`
 - `/broadcast <text>`
+- `/addpremium <user_id> <days>`
+- `/removepremium <user_id>`
+- `/premiumlist`
+- `/addcoins <user_id> <amount>`
+- `/setbalance <user_id> <wallet> [bank]`
+- `/userinfo <user_id>`
+- `/ownerstats`
 
 ---
 
