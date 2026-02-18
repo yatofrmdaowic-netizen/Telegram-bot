@@ -65,9 +65,20 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 
 ### 👮 Admin Commands
 - `/antilink on|off`
-- `/kick` *(reply to user)*
-- `/mute` *(reply to user)*
-- `/promote` *(reply to user)*
+- `/kick [reason]` *(reply to user)*
+- `/ban [reason]` *(reply to user)*
+- `/unban` *(reply to user)*
+- `/mute [reason]` *(reply to user)*
+- `/unmute` *(reply to user)*
+- `/tempmute <10m|1h|1d> [reason]` *(reply to user)*
+- `/warn [reason]` *(reply to user)*
+- `/warns` *(reply to user)*
+- `/clearwarns` *(reply to user)*
+- `/lock` / `/unlock`
+- `/pin` *(reply to message)*
+- `/unpin`
+- `/purge <1-100>` *(reply to a recent message)*
+- `/adminhelp` / `/adminpanel`
 
 ---
 
