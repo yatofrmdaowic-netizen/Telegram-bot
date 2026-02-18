@@ -59,6 +59,7 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 - `/buypremium <7|30>` – Buy premium using economy coins
 - `/premiumstatus` – Check your premium status
 - `/premiumdaily` – Claim premium-only bonus every 12h
+- `/premiumpack` – Claim premium bonus pack every 24h
 - Premium boosts now also improve `/work` rewards and `/crime` success rate
 
 ---
@@ -103,10 +104,15 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 - `/resetuser <user_id>`
 - `/suspend <user_id> [hours] [reason]`
 - `/unsuspend <user_id>`
+- `/banaccount <user_id> [reason]`
+- `/unbanaccount <user_id>`
 - `/suspendlist`
 - `/addchannel <@channel>`
 - `/removechannel <@channel>`
 - `/channellist`
+- `/banchannel <@channel> [reason]`
+- `/unbanchannel <@channel>`
+- `/bannedchannels`
 - `/userinfo <user_id>`
 - `/topusers [count]`
 - `/ownerstats`
