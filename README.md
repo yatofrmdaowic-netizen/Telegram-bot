@@ -107,6 +107,11 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 - `/banaccount <user_id> [reason]`
 - `/unbanaccount <user_id>`
 - `/suspendlist`
+- `/reportaccount <user_id> [reason]`
+- `/reportchannel <@channel> [reason]`
+- `/accountreports`
+- `/channelreports`
+- `/clearreport <account|channel> <target>`
 - `/addchannel <@channel>`
 - `/removechannel <@channel>`
 - `/channellist`
