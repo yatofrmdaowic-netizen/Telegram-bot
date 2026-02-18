@@ -63,6 +63,13 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 
 ---
 
+### 🎬 Cineverse (TMDB)
+- `/cineverse` – Browse trending/top/action/comedy movies in a Netflix-style inline UI
+- Movie detail cards with rating, release date, and overview
+- Streaming provider lookup (US market) via TMDB watch providers
+
+---
+
 ### 👮 Admin Commands
 - `/antilink on|off`
 - `/kick [reason]` *(reply to user)*

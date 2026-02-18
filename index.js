@@ -17,6 +17,7 @@ import anti from "./lib/antilink_spam.js";
 import stalker from "./lib/stalker.js";
 import autoReact from "./lib/autoreact.js";
 import instagramPublic from "./lib/instagramPublic.js";
+import cineverse from "./lib/cineverse.js";
 
 /* ===== VALIDATE TOKEN ===== */
 if (!process.env.BOT_TOKEN) {
@@ -51,7 +52,8 @@ const modules = [
   { name: "anti", setup: anti },
   { name: "stalker", setup: stalker },
   { name: "autoReact", setup: autoReact },
-  { name: "instagramPublic", setup: instagramPublic }
+  { name: "instagramPublic", setup: instagramPublic },
+  { name: "cineverse", setup: cineverse }
 ];
 
 /* ===== LOAD MODULES ===== */
