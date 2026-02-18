@@ -101,6 +101,12 @@ A powerful **Telegram bot** built with **Node.js + Telegraf** featuring **AI cha
 - `/removecoins <user_id> <amount>`
 - `/setbalance <user_id> <wallet> [bank]`
 - `/resetuser <user_id>`
+- `/suspend <user_id> [hours] [reason]`
+- `/unsuspend <user_id>`
+- `/suspendlist`
+- `/addchannel <@channel>`
+- `/removechannel <@channel>`
+- `/channellist`
 - `/userinfo <user_id>`
 - `/topusers [count]`
 - `/ownerstats`
